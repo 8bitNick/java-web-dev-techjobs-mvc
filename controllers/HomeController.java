@@ -1,4 +1,4 @@
-package org.launchcode.javawebdevtechjobsmvc.controllers;
+package com.example.ga3.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
-/**
- * Created by LaunchCode
- */
 @Controller
 public class HomeController {
 

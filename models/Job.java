@@ -1,25 +1,22 @@
-package org.launchcode.javawebdevtechjobsmvc.models;
+package com.example.ga3.models;
 
 import java.util.Objects;
 
 public class Job {
 
-    private int id;
     private static int nextId = 1;
-
+    private final int id;
     private String name;
     private Employer employer;
     private Location location;
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    // Initialize a unique ID.
     public Job() {
         id = nextId;
         nextId++;
     }
 
-    // Initialize the id and value fields.
     public Job(String aName, Employer anEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency) {
         this();
         name = aName;
@@ -29,23 +26,27 @@ public class Job {
         coreCompetency = aCoreCompetency;
     }
 
-    // Custom toString method.
     @Override
-    public String toString(){
+    public String toString() {
         String output = "";
-        if (name.equals("")){
+
+        if (name.equals("")) {
             name = "Data not available";
         }
-        if (employer.getValue().equals("") || employer.getValue() == null){
+
+        if (employer.getValue().equals("") || employer.getValue() == null) {
             employer.setValue("Data not available");
         }
-        if (location.getValue().equals("") || location.getValue() == null){
+
+        if (location.getValue().equals("") || location.getValue() == null) {
             location.setValue("Data not available");
         }
-        if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
+
+        if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null) {
             coreCompetency.setValue("Data not available");
         }
-        if (positionType.getValue().equals("") || positionType.getValue() == null){
+
+        if (positionType.getValue().equals("") || positionType.getValue() == null) {
             positionType.setValue("Data not available");
         }
 
@@ -55,15 +56,22 @@ public class Job {
                 "Location: %s\n" +
                 "Position Type: %s\n" +
                 "Core Competency: %s\n", id, name, employer, location, positionType, coreCompetency);
+
         return output;
     }
 
-    // Custom equals and hashCode methods. Two Job objects are "equal" when their id fields match.
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Job)) return false;
+        if (this == o) {
+            return true;
+        }
+
+        if (!(o instanceof Job)) {
+            return false;
+        }
+
         Job job = (Job) o;
+
         return id == job.id;
     }
 
@@ -71,9 +79,6 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
-
-
-    // Getters and setters.
 
     public int getId() {
         return id;

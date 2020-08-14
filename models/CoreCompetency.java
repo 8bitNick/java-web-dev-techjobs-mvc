@@ -1,4 +1,4 @@
-package org.launchcode.javawebdevtechjobsmvc.models;
+package com.example.ga3.models;
 
 public class CoreCompetency extends JobField {
 
